@@ -1,0 +1,33 @@
+---
+import icons from "../assets/icons";
+
+const { name, href, label, target = "_self", extra } = Astro.props;
+interface Props {
+  name: string;
+  href: string;
+  label: string;
+  target?: string;
+  extra?: string;
+}
+
+const svg = icons[name as keyof typeof icons];
+---
+
+<a href={href} title={label} aria-label={label} target={target}>
+  <Fragment set:html={svg} />
+  {extra && <span>{extra}</span>}
+</a>
+
+<style>
+  a {
+    color: var(--text-color);
+    display: flex;
+  }
+  a:hover {
+    color: var(--link-color);
+  }
+  a > span {
+    height: 24px;
+    line-height: 24px;
+  }
+</style>
