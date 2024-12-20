@@ -4,4 +4,4 @@
 export const SITE_TITLE = "PlainPage";
 export const SITE_DESCRIPTION = "Welcome (. ❛ ᴗ ❛.)";
 export const COPYRIGHT = "© 2024 PlainPage All Rights Reserved";
-// export const ICP_NUMBER = "";
+export const ICP_NUMBER = "";
