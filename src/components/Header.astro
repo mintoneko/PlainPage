@@ -3,23 +3,25 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 import ThemeToggle from "./ThemeToggle.astro";
 import IconLink from "./IconLink.astro";
-
-const BASE_URL = import.meta.env.BASE_URL;
+import { generateURL } from "../utils";
 ---
 
 <header>
-  <a class="title" href={BASE_URL}>
+  <a class="title" href={generateURL("/", Astro.url)}>
     <h1>{SITE_TITLE}</h1>
   </a>
   <nav>
     <p>
-      <HeaderLink href={BASE_URL} aria-label="Home">Home</HeaderLink>
-      <HeaderLink href={BASE_URL + "blog"} aria-label="Blog">Blog</HeaderLink>
-      <HeaderLink href={BASE_URL + "about"} aria-label="About">About</HeaderLink
-      >
+      <HeaderLink href={generateURL("/")} aria-label="Home">Home</HeaderLink>
+      <HeaderLink href={generateURL("/blog")} aria-label="Blog">
+        Blog
+      </HeaderLink>
+      <HeaderLink href={generateURL("/about")} aria-label="About">
+        About
+      </HeaderLink>
     </p>
     <div>
-      <IconLink name="RSS" href={BASE_URL + "rss.xml"} label="RSS" />
+      <IconLink name="RSS" href={generateURL("/rss.xml")} label="RSS" />
       <IconLink
         name="Github"
         href="https://github.com/ChurchTao/PlainPage"

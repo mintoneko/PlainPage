@@ -4,6 +4,7 @@
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import { SITE_TITLE } from "../consts";
+import { generateURL } from "../utils";
 
 interface Props {
   title: string;
@@ -11,14 +12,13 @@ interface Props {
   image?: string;
 }
 
-const BASE_URL = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.url);
 const { title, description, image = "hero-img.png" } = Astro.props;
 
-const faviconURL = BASE_URL + "favicon.svg";
-const rssURL = BASE_URL + "rss.xml";
-const ogImageURL = image.startsWith("http") ? image : BASE_URL + image;
-const toggleThemeURL = BASE_URL + "toggle-theme.js";
+const faviconURL = generateURL("/favicon.svg");
+const rssURL = generateURL("/rss.xml");
+const ogImageURL = image.startsWith("http") ? image : generateURL(image);
+const toggleThemeURL = generateURL("/toggle-theme.js");
 ---
 
 <!-- Global Metadata -->

@@ -4,7 +4,7 @@ import icons from "../assets/icons";
 const { name, href, label, target = "_self", extra } = Astro.props;
 interface Props {
   name: string;
-  href: string;
+  href: string | URL;
   label: string;
   target?: string;
   extra?: string;
