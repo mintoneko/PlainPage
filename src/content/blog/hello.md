@@ -28,7 +28,3 @@ This is a code block.
 3. Numbered list item 3
 
 [Link to Google](https://www.google.com)
-
-```
-
-```
