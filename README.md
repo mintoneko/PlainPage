@@ -6,6 +6,8 @@
 
 A fast, text-focused, minimalist blog.
 
+[English](./README.md) | [中文](./README.zh-CN.md)
+
 ## Live Demo
 
 [github pages](https://churchtao.github.io/PlainPage/)

@@ -3,6 +3,10 @@ title: "Hello world"
 description: "Show how to use Plain Page"
 pubDate: "Dec 17 2024"
 updatedDate: "Dec 18 2024"
+hide: false
+tags:
+  - hello
+  - tags
 ---
 
 # Heading 1
