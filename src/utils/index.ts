@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 const BASE_URL = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL.substring(0, import.meta.env.BASE_URL.length - 1)
   : import.meta.env.BASE_URL;
@@ -23,4 +25,18 @@ export const trimSlash = (path: string) => {
 
 export const pathEqual = (a: string, b: string) => {
   return trimSlash(a) === trimSlash(b);
+};
+
+export const getUniqueTags = (posts: CollectionEntry<"blog">[]) => {
+  const tags: string[] = posts
+    .filter(post => !post.data.hide)
+    .flatMap(post => post.data.tags);
+  return tags;
+};
+
+export const getPostsByTag = (
+  posts: CollectionEntry<"blog">[],
+  tag: string
+) => {
+  return posts.filter(post => !post.data.hide && post.data.tags.includes(tag));
 };

@@ -30,6 +30,7 @@ const backLink = Astro.url.pathname.indexOf("/blog/") > -1;
               href={generateURL("/blog")}
               label="Back"
               extra="Go Back"
+              back
             />
           </span>
         )
@@ -54,7 +55,9 @@ const backLink = Astro.url.pathname.indexOf("/blog/") > -1;
                 )
               }
             </div>
-            <h1 transition:name={`post-title-${id}`}>{title}</h1>
+            <h1>
+              <span transition:name={`post-title-${id}`}>{title}</span>
+            </h1>
             <hr />
           </div>
           <slot />

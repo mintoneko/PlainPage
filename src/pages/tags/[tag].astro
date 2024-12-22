@@ -1,0 +1,67 @@
+---
+import type { GetStaticPaths } from "astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+import Header from "../../components/Header.astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import { generateURL, getPostsByTag, getUniqueTags } from "../../utils";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog", post => !post.data.hide);
+  const tags = getUniqueTags(posts);
+  return tags.map(tag => {
+    const postsByTag = getPostsByTag(posts, tag);
+    return {
+      params: { tag },
+      props: { tag, posts: postsByTag },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Props = {
+  tag: string;
+  posts: CollectionEntry<"blog">[];
+};
+
+const { tag, posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>
+        Tags: <span transition:name={`tag-${tag}`}>#{tag}</span>
+      </h1>
+      <p>
+        {posts.length} posts tagged with {tag}.
+      </p>
+      <ul class="blog-posts">
+        {
+          posts.map(post => (
+            <li>
+              <span>
+                <i>
+                  <FormattedDate date={post.data.pubDate} />
+                </i>
+              </span>
+              <a
+                href={generateURL(`/blog/${post.id}/`)}
+                transition:name={`post-title-${post.id}`}
+              >
+                {post.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
