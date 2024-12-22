@@ -25,8 +25,8 @@
 
 :root[data-theme="dark"] {
   --background-color: linear-gradient(#424f56, #928660);
-  --heading-color: #eee;
-  --text-color: #ebebeb;
+  --heading-color: #fff;
+  --text-color: #fff;
   --link-color: #64ccff;
   --visited-color: #8b6fcb;
   --code-background-color: #000;

@@ -1,8 +1,5 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { generateURL } from "../../utils";
@@ -12,34 +9,24 @@ const posts = (await getCollection("blog", post => !post.data.hide)).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <ul class="blog-posts">
-        {
-          posts.map(post => (
-            <li>
-              <span>
-                <i>
-                  <FormattedDate date={post.data.pubDate} />
-                </i>
-              </span>
-              <a
-                href={generateURL(`/blog/${post.id}/`)}
-                transition:name={`post-title-${post.id}`}
-              >
-                {post.data.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Layout>
+  <ul class="blog-posts">
+    {
+      posts.map(post => (
+        <li>
+          <span>
+            <i>
+              <FormattedDate date={post.data.pubDate} />
+            </i>
+          </span>
+          <a
+            href={generateURL(`/blog/${post.id}/`)}
+            transition:name={`post-title-${post.id}`}
+          >
+            {post.data.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

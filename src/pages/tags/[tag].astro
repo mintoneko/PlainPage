@@ -1,12 +1,10 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
 import { type CollectionEntry, getCollection } from "astro:content";
-import Header from "../../components/Header.astro";
-import BaseHead from "../../components/BaseHead.astro";
-import Footer from "../../components/Footer.astro";
 import { generateURL, getPostsByTag, getUniqueTags } from "../../utils";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import FormattedDate from "../../components/FormattedDate.astro";
+import IconLink from "../../components/IconLink.astro";
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog", post => !post.data.hide);
@@ -28,40 +26,43 @@ type Props = {
 const { tag, posts } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <h1>
-        Tags: <span transition:name={`tag-${tag}`}>#{tag}</span>
-      </h1>
-      <p>
-        {posts.length} posts tagged with {tag}.
-      </p>
-      <ul class="blog-posts">
-        {
-          posts.map(post => (
-            <li>
-              <span>
-                <i>
-                  <FormattedDate date={post.data.pubDate} />
-                </i>
-              </span>
-              <a
-                href={generateURL(`/blog/${post.id}/`)}
-                transition:name={`post-title-${post.id}`}
-              >
-                {post.data.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Layout>
+  <span class="back-link">
+    <IconLink name="Back" label="Back" extra="Go Back" back />
+  </span>
+  <h1>
+    Tags: <span transition:name={`tag-${tag}`}>#{tag}</span>
+  </h1>
+  <p>
+    {posts.length} posts tagged with {tag}.
+  </p>
+  <ul class="blog-posts">
+    {
+      posts.map(post => (
+        <li>
+          <span>
+            <i>
+              <FormattedDate date={post.data.pubDate} />
+            </i>
+          </span>
+          <a
+            href={generateURL(`/blog/${post.id}/`)}
+            transition:name={`post-title-${post.id}`}
+          >
+            {post.data.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style>
+  h1 {
+    margin: 0;
+  }
+  .back-link {
+    display: inline-block;
+    margin: 12px 0 8px -6px;
+  }
+</style>
