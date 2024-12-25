@@ -10,7 +10,7 @@ A fast, text-focused, minimalist blog.
 
 ## Live Demo
 
-[github pages](https://churchtao.github.io/PlainPage/)
+- [Github Pages Demo](https://churchtao.github.io/PlainPage/)
 
 ## Features
 
@@ -52,6 +52,51 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 All configuration is in `src/consts.ts`.
 
+```ts
+// src/consts.ts
+
+// site config
+export const SITE_TITLE = "PlainPage";
+export const SITE_DESCRIPTION = "Welcome (. ❛ ᴗ ❛.)";
+export const COPYRIGHT = "© 2024 PlainPage All Rights Reserved";
+export const ICP_NUMBER = "";
+
+// social links, empty or commented out = not displayed
+export const SOCIAL_LINKS = {
+  Github: "https://github.com/churchTao",
+  Twitter: "https://twitter.com/yourusername",
+  //   LinkedIn: "https://www.linkedin.com/in/yourusername",
+  //   Instagram: "https://www.instagram.com/yourusername",
+  //   Facebook: "https://www.facebook.com/yourusername",
+  //   YouTube: "https://www.youtube.com/yourusername",
+};
+
+// SEO related
+export const SEO_CONFIG = {
+  ogImage: "/hero-img.png", // default social media share image
+  keywords: "blog, tech, programming", // default keywords
+};
+
+// navigation config
+export const NAV_ITEMS = [
+  { text: "Home", link: "/" },
+  { text: "Blog", link: "/blog" },
+  { text: "Tags", link: "/tags" },
+  { text: "About", link: "/about" },
+];
+
+// blog config
+export const BLOG_CONFIG = {
+  locale: "en-us", // date format language
+  authorName: "Author Name", // author name
+  email: "mailto:your-email@example.com",
+  tags: {
+    title: "Tags", // tags page title
+    description: "All the tags used in posts.", // tags page description
+  },
+};
+```
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
@@ -72,6 +117,12 @@ This theme is based off of the lovely [Bear Blog](https://github.com/HermanMarti
 Inspired by [satnaing/astro-paper](https://github.com/satnaing/astro-paper).
 
 Based on [astro](https://astro.build).
+
+## Sites using this theme
+
+- [毛桃的小世界](https://毛桃.top)
+
+👏 You can submit your site to the list by creating a PR.
 
 ## 📜 License
 
