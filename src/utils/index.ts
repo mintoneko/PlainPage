@@ -27,11 +27,12 @@ export const pathEqual = (a: string, b: string) => {
   return trimSlash(a) === trimSlash(b);
 };
 
+// 平铺标签并去重
 export const getUniqueTags = (posts: CollectionEntry<"blog">[]) => {
   const tags: string[] = posts
     .filter(post => !post.data.hide)
     .flatMap(post => post.data.tags);
-  return tags;
+  return [...new Set(tags)];
 };
 
 export const getPostsByTag = (
