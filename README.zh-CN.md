@@ -2,7 +2,7 @@
   <img src="./public/favicon.svg" alt="PlainPage" width="100" />
 </div>
 
-# PlainPage
+# PlainPage (素纸)
 
 一个快速、注重文本、极简主义的博客系统。
 
