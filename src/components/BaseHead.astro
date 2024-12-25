@@ -3,17 +3,23 @@
 // all pages through the use of the <BaseHead /> component.
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE, SEO_CONFIG } from "../consts";
 import { generateURL } from "../utils";
 
 interface Props {
   title: string;
   description: string;
+  keywords?: string;
   image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.url);
-const { title, description, image = "hero-img.png" } = Astro.props;
+const {
+  title,
+  description,
+  keywords = SEO_CONFIG.keywords,
+  image = SEO_CONFIG.ogImage,
+} = Astro.props;
 
 const faviconURL = generateURL("/favicon.svg");
 const rssURL = generateURL("/rss.xml");
@@ -46,6 +52,7 @@ const toggleThemeURL = generateURL("/toggle-theme.js");
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

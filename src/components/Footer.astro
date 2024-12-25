@@ -1,5 +1,6 @@
 ---
-import { COPYRIGHT, ICP_NUMBER } from "../consts";
+import { COPYRIGHT, ICP_NUMBER, SOCIAL_LINKS } from "../consts";
+import icons, { getSizedIcon } from "../assets/icons";
 ---
 
 <footer>
@@ -20,4 +21,32 @@ import { COPYRIGHT, ICP_NUMBER } from "../consts";
       )
     }
   </small>
+  <br />
+  <div class="social-links">
+    {
+      Object.entries(SOCIAL_LINKS).map(([key, value]) => {
+        if (!value) return null;
+        return (
+          <a href={value} target="_blank">
+            <Fragment
+              set:html={getSizedIcon(key as keyof typeof icons, 16.5)}
+            />
+          </a>
+        );
+      })
+    }
+  </div>
 </footer>
+
+<style>
+  .social-links {
+    margin-top: 6px;
+    a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--link-color);
+    }
+  }
+</style>

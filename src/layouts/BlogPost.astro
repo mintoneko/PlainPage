@@ -3,11 +3,13 @@ import Layout from "./Layout.astro";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import IconLink from "../components/IconLink.astro";
+import Tags from "../components/Tags.astro";
 import { generateURL } from "../utils";
 
 type Props = CollectionEntry<"blog">["data"] & { id: string };
 
-const { id, title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { id, title, description, pubDate, updatedDate, heroImage, tags } =
+  Astro.props;
 
 const backLink = Astro.url.pathname.indexOf("/blog/") > -1;
 ---
@@ -48,6 +50,7 @@ const backLink = Astro.url.pathname.indexOf("/blog/") > -1;
         <hr />
       </div>
       <slot />
+      <Tags tags={tags} />
     </div>
   </article>
 </Layout>
