@@ -1,5 +1,5 @@
 ---
-import { generateURL } from "../utils";
+import { generateURL, decodeTag } from "../utils";
 const { tags } = Astro.props;
 type Props = {
   tags: string[];
@@ -11,7 +11,7 @@ type Props = {
     tags.map(tag => (
       <li>
         <a href={generateURL(`/tags/${tag}/`)} transition:name={`tag-${tag}`}>
-          #{tag}
+          #{decodeTag(tag)}
         </a>
       </li>
     ))

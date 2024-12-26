@@ -2,7 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
 import { type CollectionEntry, getCollection } from "astro:content";
-import { generateURL, getPostsByTag, getUniqueTags } from "../../utils";
+import {
+  generateURL,
+  getPostsByTag,
+  getUniqueTags,
+  encodeTag,
+  decodeTag,
+} from "../../utils";
 import FormattedDate from "../../components/FormattedDate.astro";
 import IconLink from "../../components/IconLink.astro";
 
@@ -12,7 +18,7 @@ export const getStaticPaths = (async () => {
   return tags.map(tag => {
     const postsByTag = getPostsByTag(posts, tag);
     return {
-      params: { tag },
+      params: { tag: encodeTag(tag) },
       props: { tag, posts: postsByTag },
     };
   });
@@ -31,10 +37,10 @@ const { tag, posts } = Astro.props;
     <IconLink name="Back" label="Back" extra="Go Back" back />
   </span>
   <h1>
-    Tags: <span transition:name={`tag-${tag}`}>#{tag}</span>
+    Tags: <span transition:name={`tag-${tag}`}>#{decodeTag(tag)}</span>
   </h1>
   <p>
-    {posts.length} posts tagged with {tag}.
+    {posts.length} posts tagged with {decodeTag(tag)}.
   </p>
   <ul class="blog-posts">
     {
