@@ -61,3 +61,18 @@ const backLink = Astro.url.pathname.indexOf("/blog/") > -1;
     margin: 12px 0 8px -6px;
   }
 </style>
+
+<script>
+  import mediumZoom from "medium-zoom/dist/pure";
+  import "medium-zoom/dist/style.css";
+
+  const zoom = mediumZoom(".prose img", {
+    margin: 24,
+    background: "rgba(0, 0, 0, 0.2)",
+    scrollOffset: 0,
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    zoom.attach(".prose img");
+  });
+</script>

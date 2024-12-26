@@ -9,11 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.0.2",
+    "@astrojs/mdx": "^4.0.3",
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.1.0",
+    "astro": "^5.1.1",
     "markdown-it": "^14.1.0",
+    "medium-zoom": "^1.1.0",
     "sanitize-html": "^2.14.0"
   },
   "devDependencies": {
