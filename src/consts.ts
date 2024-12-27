@@ -34,6 +34,7 @@ export const NAV_ITEMS = [
 // 博客配置
 export const BLOG_CONFIG = {
   locale: "en-us", // 日期格式化语言
+  profile: "https://github.com/churchTao",
   authorName: "Author Name", // 作者名称
   email: "mailto:your-email@example.com",
   tags: {

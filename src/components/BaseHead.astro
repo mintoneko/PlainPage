@@ -11,6 +11,7 @@ interface Props {
   description: string;
   keywords?: string;
   image?: string;
+  structuredData?: String;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.url);
@@ -19,6 +20,7 @@ const {
   description,
   keywords = SEO_CONFIG.keywords,
   image = SEO_CONFIG.ogImage,
+  structuredData,
 } = Astro.props;
 
 const faviconURL = generateURL("/favicon.svg");
@@ -67,6 +69,13 @@ const toggleThemeURL = generateURL("/toggle-theme.js");
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={ogImageURL} />
+
+<!-- Google JSON-LD Structured data -->
+{
+  structuredData && (
+    <script is:inline type="application/ld+json" set:html={structuredData} />
+  )
+}
 
 <ClientRouter />
 <script is:inline src={toggleThemeURL.toString()} async></script>
