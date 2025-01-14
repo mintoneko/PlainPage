@@ -2,15 +2,15 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // 网站配置
-export const SITE_TITLE = "PlainPage";
+export const SITE_TITLE = "Mobai's Blog";
 export const SITE_DESCRIPTION = "Welcome (. ❛ ᴗ ❛.)";
-export const COPYRIGHT = "© 2024 PlainPage All Rights Reserved";
+export const COPYRIGHT = "© 2025 Mobai All Rights Reserved";
 export const ICP_NUMBER = "";
 
 // 社交媒体链接, 留空或注释=不显示
 export const SOCIAL_LINKS = {
-  Github: "https://github.com/churchTao",
-  Twitter: "https://twitter.com/yourusername",
+  Github: "https://github.com/mintoneko",
+  //   Twitter: "https://twitter.com/yourusername",/
   //   LinkedIn: "https://www.linkedin.com/in/yourusername",
   //   Instagram: "https://www.instagram.com/yourusername",
   //   Facebook: "https://www.facebook.com/yourusername",
