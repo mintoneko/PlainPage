@@ -118,6 +118,7 @@ export const BLOG_CONFIG = {
 ## 使用本主题的站点
 
 - [毛桃的小世界](https://毛桃.top)
+- [Mobai's Blog](https://blog.loliowo.com)
 
 👏 你可以通过创建 PR 来将你的站点添加到列表中。
 

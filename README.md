@@ -121,6 +121,7 @@ Based on [astro](https://astro.build).
 ## Sites using this theme
 
 - [毛桃的小世界](https://毛桃.top)
+- [Mobai's Blog](https://blog.loliowo.com)
 
 👏 You can submit your site to the list by creating a PR.
 
