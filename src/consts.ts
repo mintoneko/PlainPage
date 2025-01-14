@@ -34,9 +34,9 @@ export const NAV_ITEMS = [
 // 博客配置
 export const BLOG_CONFIG = {
   locale: "en-us", // 日期格式化语言
-  profile: "https://github.com/churchTao",
-  authorName: "Author Name", // 作者名称
-  email: "mailto:your-email@example.com",
+  profile: "https://github.com/mintoneko", // 作者Github地址
+  authorName: "mobai", // 作者名称
+  email: "mailto:mobaisilent@gmail.com",
   tags: {
     title: "Tags", // 标签页面标题
     description: "All the tags used in posts.", // 标签页面描述
