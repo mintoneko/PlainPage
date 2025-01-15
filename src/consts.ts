@@ -3,7 +3,7 @@
 
 // 网站配置
 export const SITE_TITLE = "Mobai's Blog";
-export const SITE_DESCRIPTION = "Welcome (. ❛ ᴗ ❛.)";
+export const SITE_DESCRIPTION = "Welcome to Mobai's Blog (. ❛ ᴗ ❛.)";
 export const COPYRIGHT = "© 2025 Mobai All Rights Reserved";
 export const ICP_NUMBER = "";
 

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/favicon.svg" alt="PlainPage" width="100" />
+  <img src="./public/favicon-show.svg" alt="PlainPage" width="100" />
 </div>
 
 # PlainPage
@@ -27,8 +27,8 @@ A fast, text-focused, minimalist blog.
 
 ## Screenshots
 
-![light](/screenshots/light.png)
-![dark](/screenshots/dark.png)
+![light](./screenshots/light.png)
+![dark](./screenshots/dark.png)
 
 ## 🚀 Project Structure
 

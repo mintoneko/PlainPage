@@ -1,34 +1,52 @@
 ---
-title: "Hello world"
-description: "Show how to use Plain Page"
-pubDate: "Dec 17 2024"
-updatedDate: "Dec 18 2024"
+title: "Hello World"
+description: "The Hello World Page"
+pubDate: "Jan 14 2025"
+updatedDate: "Jan 15 2025"
 hide: false
 tags:
   - hello
-  - tags
 ---
 
-# Heading 1
+# 一级标题
 
-## Heading 2
+## 二级标题
 
-### Heading 3
+### 三级标题
 
-This is a paragraph.
+这是测试文本。下面是测试代码块：
 
-```python
-print("Hello world")
+```C++
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  cout<<"hello world"<<endl;
+  return 0;
+}
 ```
 
-This is a code block.
+测试无序列表：
 
 - List item 1
 - List item 2
-- List item 3
+  - List item 2.1
+  - List item 2.2
+    - List item 2.2.1
+    - List item 2.2.2
+
+
+
+测试有序列表：
 
 1. Numbered list item 1
 2. Numbered list item 2
-3. Numbered list item 3
+   1. Numbered list item 2.1
+   2. Numbered list item 2.2
+      - Numbered list item 2.2.1
+      - Numbered list item 2.2.2
 
-[Link to Google](https://www.google.com)
+
+
+> Cherish what you love, Pursue what you desire.

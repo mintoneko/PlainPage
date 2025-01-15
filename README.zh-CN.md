@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/favicon.svg" alt="PlainPage" width="100" />
+  <img src="./public/favicon-show.svg" alt="PlainPage" width="100" />
 </div>
 
 # PlainPage (素纸)
