@@ -6,11 +6,13 @@
 
 A fast, text-focused, minimalist blog.
 
+Here is the personalized modification of PlainPage. For details, please refer to the original author’s repository and template. ⛄️
+
 [English](./README.md) | [中文](./README.zh-CN.md)
 
 ## Live Demo
 
-- [Github Pages Demo](https://churchtao.github.io/PlainPage/)
+- [Demo](https://blog.loliowo.com)
 
 ## Features
 
@@ -23,7 +25,7 @@ A fast, text-focused, minimalist blog.
 
 ## ✅ Lighthouse Score
 
-[![lighthouse](/screenshots/lighthouse-score.svg)](https://pagespeed.web.dev/analysis/https-churchtao-github-io-PlainPage/e1mpmv9swy?form_factor=desktop)
+[![lighthouse](./screenshots/lighthouse-score.svg)](https://pagespeed.web.dev/analysis/https-churchtao-github-io-PlainPage/e1mpmv9swy?form_factor=desktop)
 
 ## Screenshots
 
@@ -33,17 +35,17 @@ A fast, text-focused, minimalist blog.
 ## 🚀 Project Structure
 
 ```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   ├── pages/
-│   └── consts.ts
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+├── public/                # Static assets directory for public resources like images, fonts, etc.
+├── src/                   # Source code directory, containing the main application code.
+│   ├── components/        # Reusable UI components for building the application.
+│   ├── content/           # Content directory for storing static content like Markdown files.
+│   ├── layouts/           # Layout components used for page structures.
+│   ├── pages/             # Pages directory, where each file corresponds to a route in the application.
+│   └── consts.ts          # Constants file for defining global configuration or constants.
+├── astro.config.mjs       # Astro configuration file for build options, plugins, and project settings.
+├── README.md              # Project readme file containing basic information and usage instructions.
+├── package.json           # Node.js package file for managing dependencies and scripts.
+└── tsconfig.json          # TypeScript configuration file for setting TypeScript compiler options.
 ```
 
 The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
@@ -63,8 +65,8 @@ export const ICP_NUMBER = "";
 
 // social links, empty or commented out = not displayed
 export const SOCIAL_LINKS = {
-  Github: "https://github.com/churchTao",
-  Twitter: "https://twitter.com/yourusername",
+  Github: "https://github.com/yourGithub",
+  //   Twitter: "https://twitter.com/yourusername",
   //   LinkedIn: "https://www.linkedin.com/in/yourusername",
   //   Instagram: "https://www.instagram.com/yourusername",
   //   Facebook: "https://www.facebook.com/yourusername",
@@ -116,6 +118,8 @@ This theme is based off of the lovely [Bear Blog](https://github.com/HermanMarti
 
 Inspired by [satnaing/astro-paper](https://github.com/satnaing/astro-paper).
 
+Forked from [PlainPage](https://github.com/ChurchTao/PlainPage)
+
 Based on [astro](https://astro.build).
 
 ## Sites using this theme
@@ -127,4 +131,4 @@ Based on [astro](https://astro.build).
 
 ## 📜 License
 
-Licensed under the [MIT](./LICENSE) License, Copyright © 2024
+Licensed under the [MIT](./LICENSE) License, Copyright © 2025
