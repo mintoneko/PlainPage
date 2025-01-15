@@ -20,7 +20,7 @@ export const SOCIAL_LINKS = {
 // SEO 相关
 export const SEO_CONFIG = {
   ogImage: "/hero-img.png", // 默认的社交媒体分享图片
-  keywords: "blog, tech, programming", // 默认关键词
+  keywords: "blog, tech, programming, mobai", // 默认关键词
 };
 
 // 导航配置
