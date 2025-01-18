@@ -2,15 +2,27 @@ const primaryColorScheme = ""; // "light" | "dark"
 
 // Get theme data from local storage
 const currentTheme = localStorage.getItem("theme");
+const storedDate = localStorage.getItem("theme-date"); // 存储日期
 
 function getPreferTheme() {
-  // return theme value in local storage if it is set
+  const today = new Date().toDateString();
+
+  // 如果今天的日期和存储的日期不同，则清除localStorage中的主题
+  if (storedDate !== today) {
+    localStorage.removeItem("theme");
+    localStorage.removeItem("theme-date");
+  }
+
+  // 获取存储的主题值
+  const currentTheme = localStorage.getItem("theme");
+
+  // 如果有存储的主题，则返回该主题
   if (currentTheme) return currentTheme;
 
-  // return primary color scheme if it is set
+  // 如果没有存储的主题，则返回系统的首选主题
   if (primaryColorScheme) return primaryColorScheme;
 
-  // return user device's prefer color scheme
+  // 检查用户系统的颜色主题偏好
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
@@ -20,6 +32,7 @@ let themeValue = getPreferTheme();
 
 function setPreference() {
   localStorage.setItem("theme", themeValue);
+  localStorage.setItem("theme-date", new Date().toDateString()); // 存储当前日期
   reflectPreference();
 }
 
@@ -28,18 +41,10 @@ function reflectPreference() {
 
   document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
 
-  // Get a reference to the body element
   const body = document.body;
-
-  // Check if the body element exists before using getComputedStyle
   if (body) {
-    // Get the computed styles for the body element
     const computedStyles = window.getComputedStyle(body);
-
-    // Get the background color property
     const bgColor = computedStyles.backgroundColor;
-
-    // Set the background color in <meta theme-color ... />
     document
       .querySelector("meta[name='theme-color']")
       ?.setAttribute("content", bgColor);
@@ -51,10 +56,7 @@ reflectPreference();
 
 window.onload = () => {
   function setThemeFeature() {
-    // set on load so screen readers can get the latest value on the button
     reflectPreference();
-
-    // now this script can find and listen for clicks on the control
     document.querySelector("#theme-btn")?.addEventListener("click", () => {
       themeValue = themeValue === "light" ? "dark" : "light";
       setPreference();
@@ -62,8 +64,6 @@ window.onload = () => {
   }
 
   setThemeFeature();
-
-  // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", setThemeFeature);
 };
 
